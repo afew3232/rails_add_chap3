@@ -7,7 +7,6 @@ module ApplicationHelper
     	#return 最終行で実行されたものが返る
       base_title
     else
-    	#return 最終行で実行されたものが返る
       page_title + " | " + base_title
     end
   end
