@@ -8,4 +8,14 @@ class User < ApplicationRecord
   has_secure_password
   validates :password,presence: true, length: { minimum: 6 }
 
+  # 渡された文字列のハッシュ値を返す テスト用のログインデータ(fixtureという)
+  # testで使用する
+  #password_digestをfixtureに追加する ⇒ digestメゾット
+  # has_secure_passwordで bcryptパスワードが作成されるため、同じ方法でfixtureようのパスワードを作成する。
+  def User.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                                                  BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
+  end
+
 end

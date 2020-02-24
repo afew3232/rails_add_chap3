@@ -1,0 +1,9 @@
+
+#ここでは、testで使う専用のアカウントを作成している。
+michael:
+  name: Michael Example
+  email: michael@example.com
+  #ymlではERbを使用できる password_digestを用意できる
+  #fixtureでは、ハッシュ化されたパスワードの生の値に戻すことができない。
+  #なので全IDで同じパスワードを使う(ここでその処理をするわけではない)
+  password_digest: <%= User.digest('password') %>

@@ -22,6 +22,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     end
     follow_redirect! #プログラム内でのリダイレクトのレスポンスに従って画面遷移を行う
     assert_template 'users/show' #showに移動できているか？
+    assert is_logged_in?
   end
 
 end
